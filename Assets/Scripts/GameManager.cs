@@ -40,6 +40,14 @@ public class GameManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
+    void updtae()
+    {
+
+        timer = Time.deltaTime;
+
+
+    } }
+
     void Start()
     {
         if (instance == null) { instance = this; }
@@ -55,10 +63,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (gameState)
-        {
-            case GameState.GAME:
-                if (timerRunning)
+    switch (gameState)
+    {
+        case GameState.GAME:
+            if (timerRunning)
+                D3DHDRDisplayBitDepth d3DHDRDisplayBitDepth
+
+
+
+                    }
                 {
                     if (timer <= 0)
                     {
@@ -78,11 +91,20 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateState(GameState newState)
-    {
-        gameState = newState;
-        stateUpdated = false;
+{
+    gameState = newState;
+    stateUpdated = false;
 
-        if (!stateUpdated)
+    if (!stateUpdated)}}}
+
+{ { } { }
+    {
+
+
+
+        void Update 
+
+    } }
         {
             switch(gameState)
             {
@@ -130,42 +152,7 @@ public class GameManager : MonoBehaviour
                     }
 
                     timerRunning = false;
-                    endScreen.SetScreen(ScoreManager.instance.GetOverallScore(), ScoreManager.instance.GetLocations());
-                    player.DisableInput(true);
-                    break;
-
-            }
-        }
-        stateUpdated = true;
-    }
-
-    public void PlayAgain()
-    {
-        foreach (SpotInstance1 location in ScoreManager.instance.GetLocations())
-        {
-            location.GetComponentInChildren<AudioSource>().Play();
-        }
-        player.transform.position = restartPoint.position;
-        ScoreManager.instance.ClearScores();
-        player.transform.localEulerAngles = new Vector3(0, 90, 0);
-        UpdateState(GameState.GAME);
-    }
-
-    public void Transition(TransitionDelegate _delegate)
-    {
-        TransitionDel = _delegate;
-        StartCoroutine(TransitionFade());
-    }
-
-    IEnumerator TransitionFade()
-    {
-        float alpha = 0;
-        blackout.color = new Color(blackout.color.r, blackout.color.g, blackout.color.b, alpha);
-        while (alpha < 1)
-        {
-            alpha += 1.5f * Time.deltaTime;
-            blackout.color = new Color(blackout.color.r, blackout.color.g, blackout.color.b, alpha);
-            yield return null;
+            \
         }
         blackout.color = new Color(blackout.color.r, blackout.color.g, blackout.color.b, 1);
 
