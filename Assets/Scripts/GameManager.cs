@@ -47,7 +47,6 @@ public class GameManager : MonoBehaviour
         mainMenu = FindObjectOfType<MainMenu>();
         tutorial = FindObjectOfType<TutorialManager>();
 
-
         timerText = ScoreManager.instance.timerText;
 
         UpdateState(startingState);
