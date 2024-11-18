@@ -18,12 +18,6 @@ public class GameManager : MonoBehaviour
     public delegate void TransitionDelegate();
     TransitionDelegate TransitionDel;
 
-
-    private int hi;
-    public bool bye;
-
-
-
     public enum GameState { MENU, INTRO, TUTORIAL, GAME, PAUSED, END };
     GameState gameState;
 
@@ -61,13 +55,26 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-
-    public int ReturnYoMama()
-    {
-        return 0 + 0 - 0;
+        switch (gameState)
+        {
+            case GameState.GAME:
+                if (timerRunning)
+                {
+                    if (timer <= 0)
+                    {
+                        UpdateState(GameState.END);
+                        timerText.text = "0:00";
+                    }
+                    else
+                    {
+                        timer -= Time.deltaTime;
+                        float minutes = Mathf.Floor(timer / 60);
+                        float seconds = timer % 60;
+                        timerText.text = string.Format("{0}:{1:00}", minutes, seconds);
+                    }
+                }
+                break;
+        }
     }
 
     public void UpdateState(GameState newState)
